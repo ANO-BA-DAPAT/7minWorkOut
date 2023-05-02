@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">7minutesWorkout</string>
+    <!--Main-->
+    <string name="main_start">START</string>
+    <!--Menu-->
+    <string name="menu_home">Home</string>
+    <string name="menu_bmi">BMI</string>
+    <string name="menu_history">History</string>
+    <string name="menu_settings">Settings</string>
+    <!--Exercise-->
+    <string name="exercise_get_ready_for">GET READY FOR</string>
+    <string name="exercise_upcoming_exercise">Upcoming Exercise:</string>
+    <!--BMI-->
+    <string name="bmi_metrics_units">METRICS UNITS</string>
+    <string name="bmi_us_units">US UNITS</string>
+    <string name="bmi_current_weight_in_kg">Current Weight (in kg)</string>
+    <string name="bmi_current_height_in_cm">Current Height (in cm)</string>
+    <string name="bmi_current_weight_in_pounds">Current Weight (in pounds)</string>
+    <string name="bmi_feet">Feet</string>
+    <string name="bmi_inch">Inch</string>
+    <string name="bmi_calculate_your_bmi_btn">Calculate your bmi</string>
+    <!--History-->
+    <string name="history_date_exercise_completed">DATE EXERCISE COMPLETED</string>
+    <string name="history_looks_like_you_haven_t_do_exercises">Looks like you haven\'t do exercises</string>
+    <!--Finish-->
+    <string name="finish_end">END</string>
+    <string name="finish_congratulations">Congratulations!</string>
+    <string name="finish_you_have_done_the_workouts">You have done the workouts!</string>
+    <string name="finish_finish_button">Finish</string>
+</resources>

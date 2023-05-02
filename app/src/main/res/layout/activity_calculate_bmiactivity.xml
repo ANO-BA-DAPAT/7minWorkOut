@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CalculateBMIActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarExerciseBMI"
+        android:layout_width="match_parent"
+        android:layout_height="?android:attr/actionBarSize"
+        android:theme="@style/ExerciseTheme"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:background="@color/white"
+        app:titleTextColor="@color/black" />
+
+    <RadioGroup
+        android:id="@+id/rgBMI"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/bmi_radio_group_background"
+        app:layout_constraintTop_toBottomOf="@+id/toolbarExerciseBMI"
+        android:orientation="horizontal"
+        android:layout_margin="10dp">
+
+        <RadioButton
+            android:id="@+id/rgBMIMetrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/bmi_radio_button_background_selected"
+            android:layout_weight="0.50"
+            android:button="@null"
+            android:checked="true"
+            android:text="@string/bmi_metrics_units"
+            android:textColor="@drawable/bmi_radio_button_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+        <RadioButton
+            android:id="@+id/rgBMIUS"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.50"
+            android:button="@null"
+            android:checked="false"
+            android:text="@string/bmi_us_units"
+            android:background="@drawable/bmi_radio_button_background_selected"
+            android:textColor="@drawable/bmi_radio_button_text_color"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+    </RadioGroup>
+
+    <com.google.android.material.textfield.TextInputLayout
+    android:id="@+id/tlMetricsWeight"
+    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp"
+    app:boxStrokeColor="@color/colorAccent"
+    app:layout_constraintTop_toBottomOf="@+id/rgBMI"
+    tools:layout_editor_absoluteX="20dp">
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/etMetricsWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/bmi_current_weight_in_kg"
+        android:inputType="textCapWords" />
+</com.google.android.material.textfield.TextInputLayout>
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/tlMetricsHeight"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        app:boxStrokeColor="@color/colorAccent"
+        app:layout_constraintTop_toBottomOf="@+id/tlMetricsWeight"
+        tools:layout_editor_absoluteX="20dp">
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etMetricsHeight"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="@string/bmi_current_height_in_cm"
+            android:inputType="textCapWords" />
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <LinearLayout
+        android:id="@+id/llUSWeight"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        app:layout_constraintTop_toBottomOf="@+id/rgBMI"
+        android:orientation="vertical"
+        android:visibility="invisible">
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tlUSWeight"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:boxStrokeColor="@color/colorAccent"
+            app:layout_constraintTop_toBottomOf="@+id/rgBMI"
+            tools:layout_editor_absoluteX="20dp">
+
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/etUSWeight"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/bmi_current_weight_in_pounds"
+                android:inputType="textCapWords" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <LinearLayout
+            android:id="@+id/usFeetInch"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            app:layout_constraintTop_toBottomOf="@+id/llUSWeight"
+            android:orientation="horizontal">
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlFeet"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/colorAccent"
+                app:layout_constraintEnd_toStartOf="@+id/tlInch"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tlUSWeight"
+                android:layout_weight="0.50">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etFeet"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/bmi_feet"
+                    android:inputType="textCapWords" />
+            </com.google.android.material.textfield.TextInputLayout>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tlInch"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/colorAccent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tlFeet"
+                app:layout_constraintTop_toBottomOf="@+id/tlUSWeight"
+                android:layout_weight="0.50"
+                android:layout_marginStart="5dp">
+
+                <androidx.appcompat.widget.AppCompatEditText
+                    android:id="@+id/etInch"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/bmi_inch"
+                    android:inputType="textCapWords" />
+            </com.google.android.material.textfield.TextInputLayout>
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <Button
+        android:id="@+id/btnCalculate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="340dp"
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/bmi_calculate_your_bmi_btn"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation_view_bmi"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:id="@+id/bottom_navigation_view_bmi"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="?android:attr/windowBackground"
+        app:labelVisibilityMode="labeled"
+        app:menu="@menu/bottom_nav_menu"
+        app:itemIconSize="30dp"
+        app:itemIconTint="@null"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
